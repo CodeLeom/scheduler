@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="vue-app">
+        <h1>{{ name }}</h1>
+        <p>{{job}}</p>
+        <a v-bind:href="website" target="_blank">Twitter</a>
+
+        <h3>
+           Carts: {{cart}}
+        </h3>
+        <button @click.once="add">Add to Cart</button> <!--on click once works only once-->
+        <button v-on:click="sub">Remove from Cart</button>
+
+        <h4>Looping through list</h4>
+        <ul>
+            <!-- character is the value holder of each value in the array -->
+            <li v-for="character in characters">{{character}}</li>
+        </ul>
+        <ul>
+            <!-- trio is the value holder of each value in the array -->
+            <li v-for="trio in barcaTrio">{{trio.name}} - {{trio.wing}}</li>
+        </ul>
+
+        <div id="canvas" v-on:mousemove="updateXY">
+            {{x}}, {{y}}
+        </div>
+        <br>
+
+       <label>
+          Age <input type="text" v-model="age" placeholder="enter your age"><br>
+        </label> 
+        <label>
+            Major<input type="text" v-model="major" placeholder="enter your major">
+        </label> <br>
+        <p>Hello, {{name}}, you are {{age}} years old and Your Course of study is {{major}}</p><br>
+
+
+        <!-- computed properties only loads the function when it is fired -->
+        <h5>Computed Properties</h5>
+        <button v-on:click= "C++">Add to C</button>
+        <button v-on:click= "D++">Add to D</button>
+        <p>C - {{C}} </p>
+        <p>D - {{D}}</p>
+
+        <p>Years + C = {{addToC}}</p>
+        <p>Years + D = {{addToD}}</p>
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+</html>
